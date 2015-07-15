@@ -14,33 +14,41 @@ var bio = {
 
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+var work = {
 
-var formattedContacts = [];
-for (var key in bio.contactInfo) {
-	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contactInfo[key]);
-  	formattedContacts.push(html);
-}
+	"title": "Customer Service Officer",
+	"employer": "Scotiabank",
+	"dates": "2013-Present ",
+	"location": "Halifax, NS",
+	"description": "working in a professional incoming customer contact center, resolving customer concerns as well as providing financial advice and services"
 
-var formattedSkills = [];
-for (var key in bio.skills) {
-	var html = HTMLskills.replace("%data%",bio.skills[key]);
-	formattedSkills.push(html);
-}
+};
 
+var edu = {
+	"schools": [
+		{
+		"school": "Udacity",
+		"city": "Mountain Veiw, California",
+		"degree": "Web Development"
+		},	
+		
+		{
+		"school": "Saint Mary's University",
+		"city": "Halifax",
+		"major": "Commerce"
+		}	
+	]
+};
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-$("#header").append(HTMLskillsStart);
-$("#header").append(formattedSkills);
-$("#topContacts").append(formattedContacts.join(' '));
+var projects = {
+	"projects" [
+	{
+		"project": "Portfilio Page: Designing a portfolio using CSS and HTML",
+		"url": "www.ericbezanson.com"
 
-console.log("the cake was a lie");
-
-
-
+	}
+	{
+		"project": "Design a landing page for Lake Tahoe, California using more advanced CSS techniques."
+		"url": "http://www.ericbezanson.com/tahoe.html"
+	]
+};
