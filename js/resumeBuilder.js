@@ -40,15 +40,14 @@ var edu = {
 	]
 };
 
-var projects = {
-	"projects" [
-	{
-		"project": "Portfilio Page: Designing a portfolio using CSS and HTML",
-		"url": "www.ericbezanson.com"
 
-	}
-	{
-		"project": "Design a landing page for Lake Tahoe, California using more advanced CSS techniques."
-		"url": "http://www.ericbezanson.com/tahoe.html"
-	]
+
+if (bio.skills.length < 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills = [];
+for (var key in bio.skills) {
+	var html = HTMLskills.replace("%data%",bio.skills[key]);
+	formattedSkills.push(html);
+	$("#header").append(formattedSkills.join(''));
+}
 };
