@@ -9,13 +9,13 @@ var bio = {
         "location": "Halifax, NS"
     },
     "bioPic": "images/fry.jpg",
-    "welcomeMessage": "Now this is the law of the jungle, as old and as true as the sky, And the wolf that shall keep it may prosper, but the wolf that shall break it must die. As the creeper that girdles the tree trunk, the law runneth forward and back; For the strength of the pack is the wolf, and the strength of the wolf is the pack.",
+    "welcomeMessage": "I have over 1000 years experience in the food service industry, 99% of that was being frozen in a cryo chamber but experience is experience!",
     "skills": ["nunchuck skills", "bow hunting skills", "computer hacking skills"]
 
 };
 
 var work = {
-	"scotiabank": {
+	"Scotiabank": {
     	"title": "Customer Service Officer",
    		"employer": "Scotiabank",
  	    "dates": "2013-Present ",
@@ -46,6 +46,21 @@ var edu = {
         }    
     ]
 };
+//Header
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedpic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+var formattedHeader = HTMLheaderName + HTMLheaderRole + formattedpic + formattedWelcomeMsg;
+
+$("#header").append(formattedHeader);
+
+var formattedContacts = [];
+for (var key in bio.contactInfo) {
+	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contactInfo[key]);
+  	formattedContacts.push(html);
+}
+$("#topContacts").append(formattedContacts.join(' '));
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -57,10 +72,18 @@ if (bio.skills.length > 0) {
 	var formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
 	$("#skills").append(formattedSkills);
 }
-
-$("#workExperience").append(HTMLworkStart);
+//work 
+var displayWork = function() {
 for (key in work) {
-	$("#workExperience").append(HTMLworkEmployer.replace("%data%", key));
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work[key].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work[key].title);
+	var formattedDates = HTMLworkDates.replace("%data%", work[key].dates);
+	var formattedLocation = HTMLworkLocation.replace("%data%", work[key].location);
+	var formattedDescription = HTMLworkDescription.replace("%data%", work[key].description);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription;
+	$(".work-entry:last").append(formattedEmployerTitle);
 }
-	
+};
+displayWork();
 
