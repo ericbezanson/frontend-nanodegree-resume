@@ -51,7 +51,7 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedpic = HTMLbioPic.replace("%data%", bio.bioPic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedHeader = HTMLheaderName + HTMLheaderRole + formattedpic + formattedWelcomeMsg;
+var formattedHeader = formattedName + formattedRole + formattedpic + formattedWelcomeMsg;
 
 $("#header").append(formattedHeader);
 
@@ -86,4 +86,23 @@ for (key in work) {
 }
 };
 displayWork();
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
+  });
+
+
+
+
+function locationizer(work_obj) {
+    var LocationArray = [];
+    for (job in work_obj.jobs) {
+        var newLocation = work_obj.jobs[job].location;
+        newLocation.push(LocationArray);
+    }
+    return LocationArray;
+
+}
 
