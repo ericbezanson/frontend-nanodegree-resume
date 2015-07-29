@@ -1,3 +1,4 @@
+//header
 var bio = {
 
     "name": "Eric Bezanson",
@@ -39,7 +40,7 @@ if (bio.skills.length > 0) {
 	var formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
 	$("#skills").append(formattedSkills);
 }
-
+//work experience
 var work = {
 	"jobs": [
 	{
@@ -58,7 +59,6 @@ var work = {
 	}
 ]	
 };
-
 work.display = function() {
 	for(job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -72,7 +72,7 @@ work.display = function() {
 	}
 }
 work.display();
-
+//education
 var edu = {
     "schools": [
         {
@@ -92,7 +92,6 @@ var edu = {
         }    
     ]
 };
-
 edu.display = function() {
 	for (school in edu.schools) {
 		$("#education").append(HTMLschoolStart);
@@ -101,12 +100,11 @@ edu.display = function() {
 		var formattedDegree = HTMLschoolDegree.replace("%data%", edu.schools[school].degree);
 		var formattedMajor = HTMLschoolMajor.replace("%data%", edu.schools[school].major);
 		var formattedDates = HTMLschoolDates.replace("%data%", edu.schools[school].dates);
-		$(".education-entry").append(formattedName + formattedLocation + formattedDegree + formattedMajor + formattedDates);
+		$(".education-entry:last").append(formattedName + formattedLocation + formattedDegree + formattedMajor + formattedDates);
 	}
 }
 edu.display();
-
-
+//projects
 var projects = {
 	"projects": [
 	{
@@ -127,7 +125,6 @@ projects.display = function() {
 		$(".project-entry").append(HTMLprojectStart + formattedTitle + formattedDates + formattedDescription + formattedImage);
 	}
 };
-
 projects.display();
 
 
@@ -137,9 +134,6 @@ $(document).click(function(loc) {
   var y = loc.pageY;
   logClicks(x,y);
   });
-
-
-
 
 function locationizer(work_obj) {
     var LocationArray = [];
@@ -166,19 +160,3 @@ inName(bio);
 
 
 $("#mapDiv").append(googleMap);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
