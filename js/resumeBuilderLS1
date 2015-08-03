@@ -1,0 +1,104 @@
+var bio = {
+
+	"name": "Eric Bezanson",
+	"role": "Web Developer",
+	"contactInfo": {
+		"email": "eric.bezanson@outlook.com",
+		"mobile": "902-403-6595",
+		"github": "https://github.com/ericbezanson",
+		"location": "Halifax, NS"
+	},
+	"bioPic": "images/fry.jpg",
+	"welcomeMessage": "Now this is the law of the jungle, as old and as true as the sky, And the wolf that shall keep it may prosper, but the wolf that shall break it must die. As the creeper that girdles the tree trunk, the law runneth forward and back; For the strength of the pack is the wolf, and the strength of the wolf is the pack.",
+	"skills": ["nunchuck skills", "bow hunting skills", "computer hacking skills"]
+
+};
+
+var work = {};
+
+work.title = "Customer Service Officer";
+work.employer = "Scotiabank";
+work.dates = "2013-Present ";
+work.location = "Halifax, NS";
+work.description = "working in a professional incoming customer contact center, resolving customer concerns as well as providing financial advice and services"
+
+var edu = {
+	"schools": [
+		{
+		"school": "Udacity",
+		"city": "Mountain Veiw, California",
+		"degree": "Web Development"
+		},	
+		
+		{
+		"school": "Saint Mary's University",
+		"city": "Halifax",
+		"major": "Commerce"
+		}	
+	]
+};
+
+var formattedContacts = [];
+for (var key in bio.contactInfo) {
+	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contactInfo[key]);
+  	formattedContacts.push(html);
+}
+
+var formattedSkills = [];
+for (var key in bio.skills) {
+	var html = HTMLskills.replace("%data%",bio.skills[key]);
+	formattedSkills.push(html);
+}
+
+var formattedWork = [];
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.employer);
+var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.title);
+var formattedWorkYears = HTMLworkDates.replace("%data%", work.dates);
+var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
+var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.description);
+
+
+var formattedSchoolName = HTMLschoolName.replace("%data%", edu.school);
+var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", edu.degree);
+
+
+
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);
+$("#header").append(HTMLskillsStart);
+$("#header").append(formattedSkills.join(''));
+$("#topContacts").append(formattedContacts.join(' '));
+
+$("#workExperience").append(HTMLworkStart);
+$("#workExperience").append(formattedWorkEmployer);
+$("#workExperience").append(formattedWorkTitle);
+$("#workExperience").append(formattedWorkYears);
+$("#workExperience").append(formattedWorkLocation);
+$("#workExperience").append(formattedWorkDescription);
+
+$("#education").append(HTMLschoolStart);
+$("#education").append(formattedSchoolName);
+
+var projects = {
+	"projects" [
+	{
+		"project": "Portfilio Page: Designing a portfolio using CSS and HTML",
+		"url": "www.ericbezanson.com"
+
+	}
+	{
+		"project": "Design a landing page for Lake Tahoe, California using more advanced CSS techniques."
+		"url": "http://www.ericbezanson.com/tahoe.html"
+	]
+};
+console.log("the cake was a lie");
