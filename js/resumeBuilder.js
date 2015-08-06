@@ -4,19 +4,26 @@
 var bio = {
 
     'name': 'Eric Bezanson',
-    'role': 'Web Developer',
+    'role': 'Web Devloper',
     'contacts': {
-        'email': 'eric.bezanson@outlook.com',
-        'mobile': '902-403-6595',
+        'email': 'mailto:eric.bezanson@outlook.com',
+        'linkedin': 'https://www.linkedin.com/pub/eric-bezanson/3/678/62',
         'github': 'https://github.com/ericbezanson',
-        'location': 'Halifax, NS'
+        'mobile': '902-403-6595'
     },
     'bioPic': 'images/ericpic.jpg',
+<<<<<<< HEAD
     'welcomeMessage': 'Hey my name is Eric, Currently I am a Web Developer in training! This is on of my first projects and I hope you enjoy it. My contact info is listed above feel free to contact me by any means!',
     'skills': ['• nunchuck skills •', '• bow hunting skills •', '• computer hacking skills •']
 
 };
 //Work Object
+=======
+    'welcomeMessage': 'I have over 1000 years experience in the food service industry, 99% of that was being frozen in a cryo chamber but experience is experience!',
+    'skills': ['nunchuck skills', 'bow hunting skills', 'computer hacking skills']
+
+};
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 var work = {
 	'jobs': [
 	{
@@ -35,27 +42,33 @@ var work = {
 	}
 ]	
 };
+<<<<<<< HEAD
 //Education Object
+=======
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 var edu = {
     'schools': [
-        {
+    {
         'name': 'Udacity',
         'location': 'Mountain Veiw, California',
         'degree': 'Nanodegree',
         'major': 'Front-End Web Development',
         'dates': '2015'
-        },    
+    },    
 
-        {
+    {
         'name': 'Treehouse',
         'location': 'Orlando, Florida',
         'degree': 'Treehouse Track',
         'major': 'front-end Web Development',
         'dates': '2015'
-        }    
+    }    
     ]
 };
+<<<<<<< HEAD
 // Porjects Object
+=======
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 var projects = {
 	'projects': [
 	{
@@ -65,11 +78,15 @@ var projects = {
 		'image': 'images/lakeTahoeThumb.png'
 	}
 	]
+<<<<<<< HEAD
 }
 //Display Functions
 
 //Display Bio
 bio.display = function() {
+=======
+};
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 var formattedName = HTMLheaderName.replace('%data%', bio.name);
 var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
 var formattedpic = HTMLbioPic.replace('%data%', bio.bioPic);
@@ -79,14 +96,24 @@ var formattedHeader = formattedpic + formattedWelcomeMsg;
 $('#header').prepend(formattedID);
 $('#header').append(formattedHeader);
 
+<<<<<<< HEAD
+=======
+//rewriting this to allow the addition of img-links	
+var HTMLcontactGeneric = '<li class="contact-item"><a class="%contact%" href="%data%" target="_blank">%data%</a></li>';
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 var formattedContacts = [];
 for (var key in bio.contacts) {
 	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contacts[key]);
   	formattedContacts.push(html);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 }
 $('#topContacts').append(formattedContacts.join(' '));
 
 if (bio.skills.length > 0) {
+<<<<<<< HEAD
 	$('#header').append(HTMLskillsStart);
 
 	var formattedSkills = HTMLskills.replace('%data%', bio.skills[0]);
@@ -101,6 +128,18 @@ if (bio.skills.length > 0) {
 work.display = function() {
 	for(var job in work.jobs) {
 		$('#workExperience').append(HTMLworkStart);
+=======
+	$('.skillsContent').prepend(HTMLskillsStart);
+	bio.skills.forEach(function(skill) {
+		$('#skills').append(HTMLskills.replace("%data", skill));
+	});
+}
+
+
+work.display = function() {
+	for(job in work.jobs) {
+		$('.workContent').append(HTMLworkStart);
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
 		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
@@ -110,10 +149,15 @@ work.display = function() {
 		
 	}
 }
+<<<<<<< HEAD
 //Display Education
+=======
+work.display();
+
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 edu.display = function() {
 	for (school in edu.schools) {
-		$('#education').append(HTMLschoolStart);
+		$('.educationContent').append(HTMLschoolStart);
 		var formattedName = HTMLschoolName.replace('%data%', edu.schools[school].name);
 		var formattedLocation = HTMLschoolLocation.replace('%data%', edu.schools[school].location);
 		var formattedDegree = HTMLschoolDegree.replace('%data%', edu.schools[school].degree);
@@ -122,10 +166,15 @@ edu.display = function() {
 		$('.education-entry:last').append(formattedName + formattedLocation + formattedDegree + formattedMajor + formattedDates);
 	}
 }
+<<<<<<< HEAD
 //Display Functions
+=======
+edu.display();
+
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
 projects.display = function() {
 	for (project in projects.projects){
-		$('#projects').append(HTMLprojectStart);
+		$('.projectContent').append(HTMLprojectStart);
 		var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
 		var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
 		var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
@@ -157,6 +206,32 @@ var inName = function(bio_obj) {
 }
 inName(bio);
 
+<<<<<<< HEAD
 //Adding Google Maps
 $('#mapDiv').append(googleMap);
 console.log("The Cake is a Lie")
+=======
+
+//$('#mapDiv').append(googleMap);
+
+
+$(document).ready(function(){
+	$("#dropdownContainer").hide();
+	$("#topNav").click(function(){
+		$("#dropdownContainer").slideToggle();
+	})
+$(document).ready(fuction(){
+	$("dropdownContainer").hover(
+
+		)
+})
+
+
+
+
+
+
+
+
+})
+>>>>>>> 20b7c04793b4a39a40126607d3159aca960a10b7
