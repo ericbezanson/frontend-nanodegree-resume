@@ -1,4 +1,6 @@
-//header
+//Objects
+
+//Bio Object
 var bio = {
 
     'name': 'Eric Bezanson',
@@ -9,38 +11,12 @@ var bio = {
         'github': 'https://github.com/ericbezanson',
         'location': 'Halifax, NS'
     },
-    'bioPic': 'images/fry.jpg',
-    'welcomeMessage': 'I have over 1000 years experience in the food service industry, 99% of that was being frozen in a cryo chamber but experience is experience!',
-    'skills': ['nunchuck skills', 'bow hunting skills', 'computer hacking skills']
+    'bioPic': 'images/ericpic.jpg',
+    'welcomeMessage': 'Hey my name is Eric, Currently I am a Web Developer in training! This is on of my first projects and I hope you enjoy it. My contact info is listed above feel free to contact me by any means!',
+    'skills': ['• nunchuck skills •', '• bow hunting skills •', '• computer hacking skills •']
 
 };
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-var formattedpic = HTMLbioPic.replace('%data%', bio.bioPic);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-var formattedID = formattedName + formattedRole;
-var formattedHeader = formattedpic + formattedWelcomeMsg;
-$('#header').prepend(formattedID);
-$('#header').append(formattedHeader);
-
-var formattedContacts = [];
-for (var key in bio.contactInfo) {
-	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contactInfo[key]);
-  	formattedContacts.push(html);
-}
-$('#topContacts').append(formattedContacts.join(' '));
-
-if (bio.skills.length > 0) {
-	$('#header').append(HTMLskillsStart);
-
-	var formattedSkills = HTMLskills.replace('%data%', bio.skills[0]);
-	$('#skills').append(formattedSkills);
-	var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
-	$('#skills').append(formattedSkills);
-	var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
-	$('#skills').append(formattedSkills);
-}
-//work experience
+//Work Object
 var work = {
 	'jobs': [
 	{
@@ -59,20 +35,7 @@ var work = {
 	}
 ]	
 };
-work.display = function() {
-	for(job in work.jobs) {
-		$('#workExperience').append(HTMLworkStart);
-		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-		$('.work-entry:last').append(formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription);
-		
-	}
-}
-work.display();
-//education
+//Education Object
 var edu = {
     'schools': [
         {
@@ -92,6 +55,62 @@ var edu = {
         }    
     ]
 };
+// Porjects Object
+var projects = {
+	'projects': [
+	{
+		'title': '<a href="http://www.ericbezanson.com/tahoe.html" target="_blank">Lake Tahoe</a>',
+		'dates': '2015',
+		'description': 'Use a working knowlege of CSS to create a landing page for the beautiful Lake Tahoe, California',
+		'image': 'images/lakeTahoeThumb.png'
+	}
+	]
+}
+//Display Functions
+
+//Display Bio
+bio.display = function() {
+var formattedName = HTMLheaderName.replace('%data%', bio.name);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+var formattedpic = HTMLbioPic.replace('%data%', bio.bioPic);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+var formattedID = formattedName + formattedRole;
+var formattedHeader = formattedpic + formattedWelcomeMsg;
+$('#header').prepend(formattedID);
+$('#header').append(formattedHeader);
+
+var formattedContacts = [];
+for (var key in bio.contacts) {
+	var html = HTMLcontactGeneric.replace('%contact%', key).replace('%data%', bio.contacts[key]);
+  	formattedContacts.push(html);
+}
+$('#topContacts').append(formattedContacts.join(' '));
+
+if (bio.skills.length > 0) {
+	$('#header').append(HTMLskillsStart);
+
+	var formattedSkills = HTMLskills.replace('%data%', bio.skills[0]);
+	$('#skills').append(formattedSkills);
+	var formattedSkills = HTMLskills.replace('%data%', bio.skills[1]);
+	$('#skills').append(formattedSkills);
+	var formattedSkills = HTMLskills.replace('%data%', bio.skills[2]);
+	$('#skills').append(formattedSkills);
+}
+};
+//Display Work
+work.display = function() {
+	for(var job in work.jobs) {
+		$('#workExperience').append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+		$('.work-entry:last').append(formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription);
+		
+	}
+}
+//Display Education
 edu.display = function() {
 	for (school in edu.schools) {
 		$('#education').append(HTMLschoolStart);
@@ -103,18 +122,7 @@ edu.display = function() {
 		$('.education-entry:last').append(formattedName + formattedLocation + formattedDegree + formattedMajor + formattedDates);
 	}
 }
-edu.display();
-//projects
-var projects = {
-	'projects': [
-	{
-		'title': '<a href="http://www.ericbezanson.com/tahoe.html" target="_blank">Lake Tahoe</a>',
-		'dates': '2015',
-		'description': 'Use a working knowlege of CSS to create a landing page for the beautiful Lake Tahoe, California',
-		'image': 'images/lakeTahoeThumb.png'
-	}
-	]
-}
+//Display Functions
 projects.display = function() {
 	for (project in projects.projects){
 		$('#projects').append(HTMLprojectStart);
@@ -125,38 +133,30 @@ projects.display = function() {
 		$('.project-entry').append(HTMLprojectStart + formattedTitle + formattedDates + formattedDescription + formattedImage);
 	}
 };
+
+bio.display();
+work.display();
+edu.display();
 projects.display();
 
 
-
+//Tracking Click Locations in console
 $(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x,y);
-  });
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x,y);
+	});
 
-function locationizer(work_obj) {
-    var LocationArray = [];
-    for (job in work_obj.jobs) {
-        var newLocation = work_obj.jobs[job].location;
-        newLocation.push(LocationArray);
-    }
-    return LocationArray;
-
-}
-
+//Locationizer Button
 $('#main').append(internationalizeButton);
-
 var inName = function(bio_obj) {
     var finalName = bio.name.split(' ');
     finalName[1] = finalName[1].toUpperCase();
     finalName[0] = finalName[0].slice(0,1).toUpperCase() + finalName[0].slice(1).toLowerCase();
     finalName = finalName.join(' ');
-    
-
 }
-
 inName(bio);
 
-
+//Adding Google Maps
 $('#mapDiv').append(googleMap);
+console.log("The Cake is a Lie")
