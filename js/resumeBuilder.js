@@ -160,3 +160,20 @@ inName(bio);
 
 
 //$('#mapDiv').append(googleMap);
+
+
+$(document).ready(function(){
+	$("#dropdownContainer").hide();
+	$("#topNav").click(function(){
+		$("#dropdownContainer").slideToggle();
+	})
+	
+
+
+
+
+
+
+
+
+})

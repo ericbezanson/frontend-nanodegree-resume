@@ -1,0 +1,106 @@
+/***********
+   HEADER
+************/
+* {
+	font-family: 'Arvo', serif;
+}
+body {
+	width: 100%;
+	background-image: url("../images/concrete_seamless.png");
+	margin:auto;
+}
+.header {
+	background-image: url("../images/dark_embroidery.png");
+	background-color: #cccccc;
+	width: 100%;
+
+}
+.headerImg {
+	margin:auto;
+	width: 300px;
+	padding:5%;
+}
+
+
+
+.profilePic {
+padding-top: 5%;
+margin:auto;
+display: block;
+height:auto;
+width: 100%;
+
+
+
+}
+.headerSkills {
+	background-color: black;
+	color:white;
+	margin-top: 0px;
+	padding: 2em;
+	text-align: center;
+	list-style-type: none;
+	
+}
+
+.menuButton {
+	height: 75px;
+	width:100%;
+	display: block;
+	border: 2.5px solid gray;
+	background-color: orange;
+	text-align: center;
+
+}
+.hambergerL, .hambergerR {
+	height: 75px;
+	width:75px;
+	display: inline-block;
+}
+.hambergerL {
+	float: left;
+
+}
+.hambergerR {
+	float: right;
+}
+.menuButton h3 {
+	display:inline;
+	color: white;
+	display: inline-block;
+	padding-top: 5px;
+	
+}
+
+.mainNav li{
+	height: 75px;
+	width:100%;
+	display: block;
+	border: 2.5px solid gray;
+	background-color: orange;
+	text-align: center;
+	text-decoration: none;
+
+}
+ ul {
+	padding: 0px;
+	margin-top: 0px;
+}
+.mainNav a {
+	text-decoration: none;
+	color: #FFF;
+	margin-top: 35px;
+}
+
+.main {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
